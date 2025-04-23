@@ -26,7 +26,7 @@ def apply_rules(axiom, rules, iterations):
     return current_string
 
 
-def draw_l_system(instructions, angle, step, start_pos=(0, 0), start_angle=0, savefile=None):
+def draw_l_system(instructions, angle, step, start_pos=(0, 0), start_angle=0, savefile=None, tree_mode=False):
     """
     根据L-System指令绘图
     :param instructions: 指令字符串（如"F+F--F+F"）
@@ -35,6 +35,7 @@ def draw_l_system(instructions, angle, step, start_pos=(0, 0), start_angle=0, sa
     :param start_pos: 起始坐标 (x, y)
     :param start_angle: 起始角度（0表示向右，90表示向上）
     :param savefile: 若指定则保存为图片文件，否则直接显示
+    :param tree_mode: 是否为分形树模式
     """
     if not isinstance(instructions, str):
         raise ValueError("指令必须是字符串类型")
@@ -105,4 +106,4 @@ if __name__ == "__main__":
     tree_angle = 45
     tree_step = 10
     tree_instr = apply_rules(tree_axiom, tree_rules, tree_iterations)
-    draw_l_system(tree_instr, tree_angle, tree_step, savefile="fractal_tree.png")
+    draw_l_system(tree_instr, tree_angle, tree_step, savefile="fractal_tree.png", tree_mode=True)
